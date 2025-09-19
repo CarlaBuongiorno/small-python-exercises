@@ -1,4 +1,4 @@
-'''Write a program where a function takes an integar which is an odd number.
+'''Write a program where a function takes an integer which is an odd number.
 If it is an even number or zero, you can throw an exception and quit.
 
 Program must print a grid of numbers where the middle number is the
@@ -39,7 +39,7 @@ def main():
     parser.add_argument("number", help="type in an odd number", type=int)
     args = parser.parse_args()
     pyramid = pyramid_grid(args.number)
-    
+
     for row, col in pyramid:
         print(row, col)
 
