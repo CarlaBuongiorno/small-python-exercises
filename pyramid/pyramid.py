@@ -53,29 +53,32 @@
 #     return grid
 
 
-
-def pyramid_grid(number): # 3
+def pyramid_grid(number): # 5
     grid = []
-    center_number = (number // 2) + 1
-    print('center_number: ', center_number)
-
+    center_number = (number // 2) + 1 # math floor gets 2, therefore add 1 for the center number
     number_to_multiply_by = 0
 
-    while center_number > 0:
+    # Find the center row and insert rows before that
+    while center_number > 0: # center_number = 3
+        # add 3 lists together -> [numbers before center number] + [center number] + [numbers after center number]
+            # first list -> range is from zero to the number before specified number
+            # second list is not necessary the first iteration, therefore it is multiplied by zero
+            # third list -> 3rd parameter of range (-1) - counts beackwards from the center_number
         center_row = list(range(1, center_number)) + ([center_number]*number_to_multiply_by) + list(range(center_number, 0, -1))
-        grid.insert(0, center_row)
-        center_number -= 1
-        number_to_multiply_by += 2
+        grid.insert(0, center_row) # insert the row created above into the grid
+        center_number -= 1 # minus 1 from the current number
+        number_to_multiply_by += 2 # this is for the second list to adjust the repeated number accordingly
     
+    # reset center_number and second list to begin creating rows after the middle row 
     center_number = (number // 2)
     number_to_multiply_by = 2
 
+    # Append rows after the center row
     while center_number > 0:
         row = list(range(1, center_number)) + ([center_number]*number_to_multiply_by) + list(range(center_number, 0, -1))
-        grid.append(row)
-        center_number -= 1
+        grid.append(row) # append the row created above into the grid
+        center_number -= 1 # minus 1 from the current number
         number_to_multiply_by += 2
 
-    print('grid: ', grid)
     return grid
     
