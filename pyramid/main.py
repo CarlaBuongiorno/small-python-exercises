@@ -40,9 +40,8 @@ def main():
     args = parser.parse_args()
     pyramid = pyramid_grid(args.number)
 
-    for row, col in pyramid:
-        print(row, col)
-
+    for row in pyramid:
+        print(' '.join(str(column) for column in row))
 
 if __name__ == '__main__':
     main()
